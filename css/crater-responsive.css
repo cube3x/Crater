@@ -1,0 +1,35 @@
+@media (min-width: 980px){
+	.header_ad {
+		display: block;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+}
+
+@media (max-width: 768px){
+	.site-header{
+		height: 150px;
+	}
+	.site-logo-wrapper, .search-banner{
+		width: 100%;
+		text-align: center;
+	}
+	.search-banner {
+		margin-top: 0px;
+	}
+	.search-banner input{
+		margin-left: 54px;
+	}
+}
+
+@media (max-width: 480px) {
+	.site-logo-wrapper{
+		width: 100%;
+		text-align: center;
+		margin-left: 0px;
+	}
+	#commentform label{
+		width: 100%;
+	}
+}
