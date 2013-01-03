@@ -5,7 +5,9 @@
 <div id="main" class="container-fluid">
   <div id="content-wrapper" class="row-fluid">
     <section id="primary" class="span7">
+      	<h3 class="page-title"><?php printf(  'Search Results for: %s', '<span>' . get_search_query() . '</span>' ); ?></h3> 
       <?php if ( have_posts() ) : ?>
+      <?php get_search_form( true ); ?>
       <?php while ( have_posts() ) : the_post(); ?>
       <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <article class="article-wrapper">
@@ -35,7 +37,8 @@
       </div>
       <?php endwhile; ?>
       <?php else: ?>
-      	<h3>No Posts Available</h3>
+      	<h3>No Results Found</h3>
+        Search Again: <?php get_search_form( true ); ?>
       <?php endif; ?>
       <?php if (function_exists('wp_pagenavi')) { wp_pagenavi(); } else { ?>
       <div class="navigation">

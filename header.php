@@ -1,24 +1,18 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" <?php language_attributes(); ?>> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 
 <head>
-<meta charset="utf-8">
+<meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title><?php wp_title( '', true); ?></title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width">
-<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/normalize.css">
-<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/main.css">
-<link href="<?php bloginfo('template_url'); ?>/inc/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-<link href="<?php bloginfo('template_url'); ?>/inc/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
-<link href="<?php bloginfo('template_url'); ?>/css/crater.css" rel="stylesheet" media="screen">
-<link href="<?php bloginfo('template_url'); ?>/css/crater-responsive.css" rel="stylesheet" media="screen">
 <?php wp_head(); ?>
 </head>
-<body <?php body_class($class); ?>>
+<body <?php body_class(); ?>>
 <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]--> 
@@ -29,12 +23,26 @@
     <div class="container-fluid">
       <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
       <div class="nav-collapse collapse">
+      <?php
+if ( has_nav_menu( 'primary' ) ) {
+     ?>
+     
         <?php wp_nav_menu( array(
-			'menu' => 'Primary Menu',
+			'theme_location' => 'primary',
 			'menu_class' => 'nav',
 			'depth' => 2,
-			'walker' => new primary_menu_walker()
+			'walker' => new crater_primary_menu_walker()
 			)); ?>
+            <?php
+} 
+else {
+	?>
+    <ul class="nav"><li><a href="<?php bloginfo('url'); ?>">Home</a></li>
+
+</ul>
+    <?php
+}
+?>
       </div>
     </div>
   </div>
@@ -51,11 +59,6 @@
     </h2>
   </hgroup>
   <div class="search-banner">
-    <form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-      <div>
-        <input type="text" value="" name="s" id="s" class="input-medium search-query" autocomplete="off"/>
-        <button type="submit" id="searchsubmit" class="cr-button cr-button-blue cr-button-search"><i class="icon-search icon-white"></i></button>
-      </div>
-    </form>
+    <?php get_search_form( true ); ?>
   </div>
 </header>

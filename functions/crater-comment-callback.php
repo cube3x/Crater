@@ -3,7 +3,6 @@
 function crater_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	?>
-
 <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
   <article id="comment-<?php comment_ID(); ?>">
     <header>

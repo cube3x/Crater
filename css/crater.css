@@ -61,10 +61,12 @@ input.search-query{
 .site-title {
 	font-family: 'Oswald', sans-serif;
 	text-transform: uppercase;
-	margin-top: 25px;
+	margin-top: 15px;
 	color: #73B4FF;
 	text-shadow: 1px 1px 1px #ccc;
 	text-decoration: none;
+	overflow: hidden;
+	white-space:nowrap;
 }
 .site-description {
 	font-size: 16px;
@@ -72,6 +74,8 @@ input.search-query{
 	font-weight:300;
 	color: #666;
 	line-height: 30px;
+	white-space:nowrap;
+	overflow: hidden;
 }
 /* End of site header */
 
@@ -89,7 +93,18 @@ input.search-query{
 }
 /* End of Index Article */
 
+/* Search Page */
+.page-title{
+	color: #ccc;
+}
+.page-title span{
+	color: #73B4FF;
+}
+/* End of search page*/
+
 /* Post style */
+.sticky{}
+.gallery-caption{}
 .article-wrapper {
 	padding-bottom: 10px;
 	border-bottom: 1px solid #ddd;
@@ -103,6 +118,7 @@ input.search-query{
 	line-height: 50px;
 	color: #333;
 	word-wrap:break-word;
+	clear: both;
 }
 .entry-meta {
 	font-size: 13px;
@@ -110,6 +126,7 @@ input.search-query{
 	padding-bottom:5px;
 	border-bottom:1px dotted #ccc;
 	margin-bottom: 10px;
+	clear: both;
 }
 .entry-meta .separator {
 	color: #73B4FF;
@@ -147,6 +164,7 @@ input.search-query{
 .entry-content {
 	line-height: 1.7em;
 	margin-bottom: 15px;
+	clear:both;
 }
 .article-footer {
 	text-align:right;
@@ -207,7 +225,11 @@ input.search-query{
 	float: left;
 	width: 100%;
 	border-bottom:1px dotted #ccc;
-	margin-top: 10px;
+	margin-top: 5px;
+	padding: 5px;
+}
+.comment.bypostauthor{
+	background: #f5f5f5;
 }
 .comments-title {
 	color: #666;

@@ -18,8 +18,8 @@
 	.search-banner {
 		margin-top: 0px;
 	}
-	.search-banner input{
-		margin-left: 54px;
+	.search-banner .cr-button-search{
+		display: none;
 	}
 }
 

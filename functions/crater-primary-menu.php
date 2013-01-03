@@ -1,5 +1,5 @@
 <?php
-class primary_menu_walker extends Walker_Nav_Menu
+class crater_primary_menu_walker extends Walker_Nav_Menu
 {
 		function start_lvl( &$output, $depth = 0, $args = array() ) {
 			$indent = str_repeat("\t", $depth);
@@ -55,8 +55,8 @@ class primary_menu_walker extends Walker_Nav_Menu
       }
 }
 
-add_filter( 'wp_nav_menu_objects', 'add_menu_parent_class' );
-function add_menu_parent_class( $items ) {
+add_filter( 'wp_nav_menu_objects', 'crater_add_menu_parent_class' );
+function crater_add_menu_parent_class( $items ) {
 	
 	$parents = array();
 	foreach ( $items as $item ) {
