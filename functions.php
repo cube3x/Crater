@@ -5,7 +5,7 @@ include_once('functions/crater-comment-callback.php');
 include_once('functions/crater-widget-areas.php');
 
 //Setting content width;
-if ( ! isset( $content_width ) ) $content_width = 1200;
+if ( ! isset( $content_width ) ) $content_width = 600;
 
 //Enabling menu
 register_nav_menu('primary', 'Primary Menu');
